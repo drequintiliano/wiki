@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>This example demonstrates how to assign an "onkeydown" event to an input element.</p>
+
+<p>Press a key inside the text field to set a red background color.</p>
+
+<input type="text" id="demo" onkeydown="myFunction()">
+<input type="text" id="cao" value="teste do teste">
+
+<script>
+function myFunction() {
+	let key = event.keyCode || event.charCode;
+    if (key == 8) {
+  		//document.getElementById("cao").style.backgroundColor = "red";
+        document.getElementById("cao").value = "";
+    }
+}
+</script>
+
+</body>
+</html>
