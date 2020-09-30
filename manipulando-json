@@ -1,0 +1,43 @@
+/*
+Tenho esse JSON:
+
+[{ id: 1, total: 50.00 }, { id: 2, total: 70.00 }]
+Gostaria de saber se é possível alterar o nome de 'total' para 'preco' usando JavaScript ou jQuery?
+*/
+
+//Pode fazer isso facilmente usando a função map().
+
+let json = '[{ "id": 1, "total": 50.00 }, { "id": 2, "total": 70.00 }]';
+let array = JSON.parse(json);
+
+let novoArray = array.map(function(item){
+  return { id: item.id, preco: item.total };
+});
+
+console.log(novoArray);
+
+//Também pode manter a propriedade original. Isso evita de ter que copiar todas as propriedades dentro da função.
+
+let json = '[{ "id": 1, "total": 50.00 }, { "id": 2, "total": 70.00 }]';
+let array = JSON.parse(json);
+
+let novoArray = array.map(function(item){
+  item.preco = item.total;
+  return item;
+});
+
+console.log(novoArray);
+
+
+//JSON.Parde()
+//O método JSON.parse() analisa uma string JSON, construindo o valor ou um objeto JavaScript descrito pela string. Uma função reviver opcional pode ser fornecida para executar uma transformação no objeto resultante antes de ser retornada.
+
+const json = '{"result":true, "count":42}';
+const obj = JSON.parse(json);
+
+console.log(obj.count);
+// expected output: 42
+
+console.log(obj.result);
+// expected output: true
+
